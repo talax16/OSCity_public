@@ -34,26 +34,30 @@ Download links for Paper, Citizens, MapImage, and optional WorldGuard are listed
 
 ## Server Folder Setup
 
-1. Create a Paper server folder.
-
-2. Place `paper-1.21.11-113.jar` inside the server folder.
-
-3. Extract `worlds/OSCityWorld.zip` into the server folder so the structure looks like:
-
-   ```text
-   PaperServer/
-     OSCityWorld/
-     plugins/
-     paper-1.21.11-113.jar
-   ```
-
-4. Copy the example server properties if needed:
+1. Create a Paper server folder and enter it:
 
    ```bash
-   cp server-config/server.properties.example /path/to/PaperServer/server.properties
+   mkdir PaperServer
+   cd PaperServer
    ```
 
-5. Place the required plugin jars inside:
+2. Clone this repository inside the server folder:
+
+   ```bash
+   git clone https://github.com/talax16/OSCity_Submission.git OSCity
+   ```
+
+3. Check `OSCity/third-party/README.md` and download the required third-party jars from the listed link or with the provided command.
+
+4. Place `paper-1.21.11-113.jar` directly inside `PaperServer`.
+
+5. Create the plugins folder:
+
+   ```bash
+   mkdir -p plugins
+   ```
+
+6. Download Citizens and MapImage, then place both jars inside `plugins/`:
 
    ```text
    PaperServer/plugins/
@@ -61,41 +65,74 @@ Download links for Paper, Citizens, MapImage, and optional WorldGuard are listed
      mapimage-1.3.jar
    ```
 
-6. If using MapImage locally, copy its config:
+7. WorldGuard is optional. If using it locally, place `worldguard-bukkit-7.0.15.jar` inside `plugins/`.
+
+8. Extract the world zip into `PaperServer`:
 
    ```bash
-   mkdir -p /path/to/PaperServer/plugins/MapImage
-   cp server-config/MapImage/config.yml /path/to/PaperServer/plugins/MapImage/config.yml
+   unzip OSCity/worlds/OSCityWorld.zip
    ```
 
-7. WorldGuard is optional. If using it locally, place `worldguard-bukkit-7.0.15.jar` in `plugins/` and copy the provided WorldGuard config:
+   The structure should look like:
 
-   ```bash
-   mkdir -p /path/to/PaperServer/plugins/WorldGuard/worlds/OSCityWorld
-   cp server-config/WorldGuard/worlds/OSCityWorld/config.yml /path/to/PaperServer/plugins/WorldGuard/worlds/OSCityWorld/config.yml
-   cp server-config/WorldGuard/worlds/OSCityWorld/regions.yml /path/to/PaperServer/plugins/WorldGuard/worlds/OSCityWorld/regions.yml
+   ```text
+   PaperServer/
+     OSCity/
+     OSCityWorld/
+     plugins/
+     paper-1.21.11-113.jar
    ```
 
-8. Build OSCity from this repository:
+   `OSCityWorld` must be directly inside the server folder. If it is left inside `OSCity/worlds/`, Paper will create a new empty world instead.
+
+9. Copy the example server properties:
 
    ```bash
+   cp OSCity/server-config/server.properties.example server.properties
+   ```
+
+10. Copy the MapImage config:
+
+   ```bash
+   mkdir -p plugins/MapImage
+   cp OSCity/server-config/MapImage/config.yml plugins/MapImage/config.yml
+   ```
+
+11. If using WorldGuard locally, copy the provided WorldGuard config:
+
+   ```bash
+   mkdir -p plugins/WorldGuard/worlds/OSCityWorld
+   cp OSCity/server-config/WorldGuard/worlds/OSCityWorld/config.yml plugins/WorldGuard/worlds/OSCityWorld/config.yml
+   cp OSCity/server-config/WorldGuard/worlds/OSCityWorld/regions.yml plugins/WorldGuard/worlds/OSCityWorld/regions.yml
+   ```
+
+12. Build OSCity from this repository:
+
+   ```bash
+   cd OSCity
    ./gradlew build
    ```
 
-9. Copy the built plugin jar into the server plugins folder:
+13. Copy the built OSCity plugin jar into the server plugins folder:
 
    ```bash
-   cp build/libs/OSCity-1.0-SNAPSHOT.jar /path/to/PaperServer/plugins/
+   cp build/libs/OSCity-1.0-SNAPSHOT.jar ../plugins/
+   cd ..
    ```
 
-10. Start the server:
+14. Accept the Minecraft EULA:
 
     ```bash
-    cd /path/to/PaperServer
+    echo "eula=true" > eula.txt
+    ```
+
+15. Start the server:
+
+    ```bash
     java -jar paper-1.21.11-113.jar
     ```
 
-11. Join the server from Minecraft Java Edition `1.21.11`.
+16. Join the server from Minecraft Java Edition `1.21.11`.
 
 ## World Name
 
