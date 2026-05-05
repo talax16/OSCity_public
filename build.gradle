@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '8.3.10'
+}
+
+group = 'com.oscity'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+    maven { 
+        name = 'citizens-repo'
+        url = 'https://maven.citizensnpcs.co/repo' 
+    }
+    maven { url 'https://maven.enginehub.org/repo/' }
+}
+
+configurations {
+    testCompileOnly.extendsFrom compileOnly
+    testRuntimeOnly.extendsFrom compileOnly
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT'
+    compileOnly('net.citizensnpcs:citizens-main:2.0.35-SNAPSHOT') {
+        transitive = false
+    }
+    compileOnly 'com.sk89q.worldguard:worldguard-bukkit:7.0.9'
+    
+    implementation 'org.xerial:sqlite-jdbc:3.44.0.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.named("shadowJar") {
+    archiveClassifier = ""
+}
+
+tasks.named("build") {
+    dependsOn(tasks.named("shadowJar"))
+}
+
+tasks.register("deployToPaper", Copy) {
+    dependsOn(tasks.named("shadowJar"))
+
+    def pluginsDir = providers.gradleProperty("paperPluginsDir")
+    onlyIf { pluginsDir.isPresent() }
+
+    from(tasks.named("shadowJar").get().outputs.files)
+    into(pluginsDir)
+}

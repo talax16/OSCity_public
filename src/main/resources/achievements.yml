@@ -1,0 +1,61 @@
+# Achievements shown in the progress report.
+
+# Understanding
+first_steps:
+  display: "First Steps"
+  description: "Complete your first journey"
+
+explorer:
+  display: "Explorer"
+  description: "Complete 3 different journeys"
+
+scholar:
+  display: "Scholar"
+  description: "Complete all 7 journeys"
+
+tlb_expert:
+  display: "TLB Expert"
+  description: "Complete Lucky journey and any other journey"
+
+cow_understander:
+  display: "COW Understander"
+  description: "Complete Pure COW or Lazy Allocation journey"
+
+laziness_pro:
+  display: "The Laziness Pro"
+  description: "Complete both Lazy Loading and Lazy Allocation journeys"
+
+swap_master:
+  display: "Swap Master"
+  description: "Complete the Swapped Out journey"
+
+# Accuracy
+flawless_journey:
+  display: "Flawless Journey"
+  description: "Complete a journey with zero wrong answers"
+
+quick_learner:
+  display: "Quick Learner"
+  description: "Complete a journey using 2 or fewer hints"
+
+# Streaks
+on_fire:
+  display: "On Fire"
+  description: "Get 5 correct answers in a row"
+
+unstoppable:
+  display: "Unstoppable"
+  description: "Get 10 correct answers in a row"
+
+perfect_run:
+  display: "Perfect Run"
+  description: "Complete 3 journeys without errors"
+
+# Curiosity
+curious_mind:
+  display: "Curious Mind"
+  description: "Ask the Kernel Guardian to explain 5 concepts"
+
+kernel_scholar:
+  display: "Kernel Scholar"
+  description: "Ask the Kernel Guardian to explain 10 concepts"

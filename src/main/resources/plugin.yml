@@ -1,0 +1,19 @@
+name: OSCity
+version: 1.0-SNAPSHOT
+main: com.oscity.OSCity
+api-version: '1.21'
+prefix: OSCity
+load: POSTWORLD
+
+depend:
+  - Citizens
+softdepend:
+  - WorldGuard
+authors:
+  - Tala Alqarzaee
+description: Educational Minecraft plugin about virtual memory and operating systems
+
+commands:
+  progress:
+    description: Show your achievement progress and session statistics
+    usage: /progress

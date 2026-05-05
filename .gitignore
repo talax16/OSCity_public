@@ -1,0 +1,27 @@
+# Gradle
+.gradle/
+build/
+
+# IntelliJ / VSCode / macOS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Logs
+*.log
+
+# Database files
+*.db
+
+# Java / IDE build output
+bin/
+out/
+target/
+*.class
+
+# Local tool settings
+.qwen/
+
+# Local server/runtime data
+plugins/
