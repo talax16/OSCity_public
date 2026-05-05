@@ -8,7 +8,15 @@ These files are not included in the repository. Download them from the official 
 
 Paper is the Minecraft server software used to run OSCity.
 
-https://papermc.io/downloads/paper
+Direct jar download command:
+
+```bash
+curl -fL -o paper-1.21.11-113.jar "https://fill-data.papermc.io/v1/objects/d99ef05d75304ca6a7808300354f4bcd7846e015f5c088f218113ed529d1b4f0/paper-1.21.11-113.jar"
+```
+
+Download page:
+
+https://fill-ui.papermc.io/projects/paper/version/1.21.11?build=113
 
 Expected jar name:
 
@@ -17,9 +25,18 @@ paper-1.21.11-113.jar
 ```
 
 ### Citizens 2.0.41
+
 Citizens is required for the Kernel Guardian NPC.
 
-https://ci.citizensnpcs.co/job/Citizens2/
+Direct jar download command:
+
+```bash
+curl -fL -o Citizens-2.0.41-b4122.jar "https://ci.citizensnpcs.co/view/Citizens/job/Citizens2/4122/artifact/dist/target/Citizens-2.0.41-b4122.jar"
+```
+
+Download page:
+
+https://ci.citizensnpcs.co/view/Citizens/job/Citizens2/4122/
 
 Expected jar name:
 
@@ -31,6 +48,14 @@ Citizens-2.0.41-b4122.jar
 
 ### MapImage 1.3
 MapImage is used for the image-based map displays in the OSCity world.
+
+Direct jar download command:
+
+```bash
+curl -fL -o mapimage-1.3.jar "https://cdn.modrinth.com/data/P0MLLUxX/versions/W86RyAtp/mapimage-1.3.jar"
+```
+
+Download page:
 
 https://modrinth.com/plugin/mapimage
 
